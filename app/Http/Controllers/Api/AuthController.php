@@ -17,12 +17,12 @@ class AuthController extends ApiBaseController
     public function register(RegisterRequest $request): JsonResponse
     {
         $authUser = $this->authService->register($request);
-        return $authUser ? $this->respondCreated($authUser) : $this->respondError(errors: 'Failed To Register', status: Response::HTTP_BAD_REQUEST);
+        return $authUser ? $this->respondCreated($authUser) : $this->respondError(errors: 'Failed To Register',message: 'Check your creds', status: Response::HTTP_BAD_REQUEST);
     }
 
     public function login(LoginRequest $request): JsonResponse
     {
         $authUser = $this->authService->login($request);
-        return $authUser ? $this->respondSuccess($authUser) : $this->respondError(errors: 'Unauthorized', status: Response::HTTP_UNPROCESSABLE_ENTITY);
+        return $authUser ? $this->respondSuccess($authUser) : $this->respondError(errors: 'Unauthorized', message: 'Check your creds', status: Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 }
