@@ -40,7 +40,6 @@ class AuthServiceTest extends TestCase
         $userResourceMock->name = 'John Doe';
         $userResourceMock->email = 'john@example.com';
 
-        // Mock User model
         $user = Mockery::mock(User::class);
         $user->shouldReceive('create')->andReturn($user);
         $user->shouldReceive('toArray')->andReturn([
@@ -72,7 +71,6 @@ class AuthServiceTest extends TestCase
             'password' => 'password',
         ]);
 
-        // Mock Auth facade
         Auth::shouldReceive('attempt')
             ->with([
                 'email' => 'jane@example.com',
@@ -101,7 +99,6 @@ class AuthServiceTest extends TestCase
             'password' => 'wrongpassword',
         ]);
 
-        // Mock Auth facade
         Auth::shouldReceive('attempt')
             ->with([
                 'email' => 'nonexistent@example.com',
