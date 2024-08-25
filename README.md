@@ -152,7 +152,6 @@ Description: Create Comment on post
 **Request Body:**
 ```json
 {
-    "title": "Just Commented",
     "content": "Here is my comment content"
 }
 ```
